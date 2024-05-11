@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head.ejs") %>
+    <title>Home Page</title>
+  </head>
+  <body>
+    <%- include("./partials/navbar.ejs") %>
+
+    <!-- <div class="container m-4 row row-cols-4"> -->
+    <div class="container d-flex justify-content-around flex-wrap mb-5">
+        <% blogs.forEach(blog => { %>
+                <div class="card mt-5" style="width: 17rem">
+                <!-- <div class="card col" style="width: 18rem"> -->
+                    <img class="card-img-top" src="<%= blog.coverImageURL %>" />
+                    <div class="card-body">
+                        <div><h5 class="card-title"><%= blog.title%></h5></div>                        
+                    </div>
+                    <div><a href="/blog/<%= blog._id %>" class="btn btn-primary m-3">View more</a></div>
+                </div>
+        <% }) %>
+    </div>
+
+    <%- include("./partials/script.ejs") %>
+  </body>
+</html>
